@@ -22,6 +22,10 @@ class HashTable:
 
     def __init__(self, capacity):
         # Your code here
+        self.capacity = capacity
+        #storage buckets
+        self.data = [None]*self.capacity
+      
 
 
     def get_num_slots(self):
@@ -34,8 +38,10 @@ class HashTable:
 
         Implement this.
         """
+        #self.storage will hold the hash
+        #return len() for number of items
         # Your code here
-
+        return len(self.storage)
 
     def get_load_factor(self):
         """
