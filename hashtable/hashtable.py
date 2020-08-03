@@ -60,7 +60,22 @@ class HashTable:
         """
 
         # Your code here
+   # https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+     # algorithm fnv-1 is
+        # hash := FNV_offset_basis do
+        # for each byte_of_data to be hashed
+            # hash := hash × FNV_prime
+            # hash := hash XOR byte_of_data
+        # return hash 
+        FNV_offset_basis=14695981039346656037
+        FNV_prime=1099511628211
 
+        hash=FNV_offset_basis
+        # encode strings into bytes with encode()
+        for x in key.encode():
+            hash = hash * FNV_prime
+            hash=hash^ x
+        return hash
 
     def djb2(self, key):
         """
