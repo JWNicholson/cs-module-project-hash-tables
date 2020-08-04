@@ -117,7 +117,7 @@ class HashTable:
         self.capacity = capacity
         #storage buckets
         self.data = [None]*self.capacity
-     
+        self.used_slots = 0
       
 
 
@@ -143,7 +143,7 @@ class HashTable:
         Implement this.
         """
         # Your code here
-        
+        return self.used_slots/self.capacity
 
     def fnv1(self, key):
         """
