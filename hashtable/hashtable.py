@@ -11,6 +11,43 @@ class HashTableEntry:
 # Hash table can't have fewer than this many slots
 MIN_CAPACITY = 8
 
+#Linked Listed method
+class LinkedList:
+    def __init__(self):
+        #first node in list
+        self.head = None
+        self.tail = None
+
+    def add_to_end(self,value):
+        pass
+
+    def remove_from_end(self):
+        #check if list is empty
+        #Yes
+        pass
+    # No
+    # which node to remove the last node from?
+    # if the head does NOT have a next node it is the only node. Remove it
+
+    # traverse the list to get last and next to last elements
+    #assign current to previous
+    # end of list - set previous next node to None to remove current from list
+    #return current value
+
+    def add_to_head(self,value):
+        pass
+    #if not set, set head and tail to new node varialbe
+    #otherwise set  new node to head
+
+    def remove_from_head(self):
+        pass
+    #check if list is empty
+    # Yes - return None
+    # otherwise - return value at current head.remove the value and update self.head
+
+    def get_length(self):
+        pass
+
 
 class HashTable:
     """
