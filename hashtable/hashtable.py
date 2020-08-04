@@ -19,37 +19,89 @@ class LinkedList:
         self.tail = None
 
     def add_to_end(self,value):
-        pass
+        new_node = Node(value)
+        #if empty set it
+        if not self.head and not self.tail:
+            self.head = new_node
+            self.tail = new_node
+
+        else:
+            self.tail.set_next(new_node)
+            self.tail = new_node
+
 
     def remove_from_end(self):
         #check if list is empty
-        #Yes
-        pass
-    # No
-    # which node to remove the last node from?
-    # if the head does NOT have a next node it is the only node. Remove it
+         #Yes
+        if not self.head and not self.tail:
+            return None
+        # No
+        else:
+             # which node to remove the last node from?
+             cur = self.head
+             prev = cur
 
-    # traverse the list to get last and next to last elements
-    #assign current to previous
-    # end of list - set previous next node to None to remove current from list
-    #return current value
+        # if the head does NOT have a next node it is the only node. Remove it
+        if cur.get_next() is None:
+            self.head = None
+            sefl.tail = None
 
-    def add_to_head(self,value):
-        pass
-    #if not set, set head and tail to new node varialbe
-    #otherwise set  new node to head
+        else:
+             # traverse the list to get last and next to last elements
+             while cur.get_next() is not None:
+                  #assign current to previous
+                  prev = cur
+                  cur = cur.get_next()
+                  # end of list - set previous next node to None to remove current from list
+                  prev.set_next(None)
+
+        #return current value
+        return cur.value
+            
+
+    def add_to_head(self,key,value):
+        new_node = HashTableEntry(key, value)
+         #if not set, set head and tail to new node varialbe
+        if not self.head and not self.tail:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            #otherwise set  new node to head
+            new_node.set_next(self.head)
+            self.head = new_node
+   
+    
 
     def remove_from_head(self):
-        pass
-    #check if list is empty
+       #check if list is empty
     # Yes - return None
-    # otherwise - return value at current head.remove the value and update self.head
+        if not self.head:
+            return None
+        # what if it isn't empty?
+        else:
+            # otherwise - return value at current head.remove the value and update self.head
+            value = self.head.get_value()
+            self.head = self.head.get_next()
+            return value
+    
+    
 
     def get_length(self):
-        pass
-    # if empty return 0 length
-    # otherwise current get next element and ad 1 to length
-    # return length
+         # if empty return 0 length
+        if not self.head:
+            return 0
+        else:
+            # otherwise current get next element and ad 1 to length
+            current = self.head
+            length = 1
+            while current.get_next() is not None:
+                current = current.get_next()
+                length = length+1
+                # return length
+            return length
+   
+    
+  
 
 
 class HashTable:
