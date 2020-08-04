@@ -47,6 +47,9 @@ class LinkedList:
 
     def get_length(self):
         pass
+    # if empty return 0 length
+    # otherwise current get next element and ad 1 to length
+    # return length
 
 
 class HashTable:
